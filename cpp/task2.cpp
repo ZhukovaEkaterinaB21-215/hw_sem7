@@ -11,7 +11,7 @@ int N(Point p0, Point p1, Point p2, Point p3)
     return n;
 }
 
-Point B_splain(Point p0, Point p1, Point p2, Point p3, double t)
+Point B_spline(Point p0, Point p1, Point p2, Point p3, double t)
 {
     Point p = pow(1 - t, 3) * p0 / 6 + (3 * pow(t, 3) - 6 * pow(t, 2) + 4) * p1 / 6 + (-3 * pow(t, 3) + 3 * pow(t, 2) + 3 * t + 1) * p2 / 6 + pow(t, 3) * p3 / 6;
     return p;
@@ -46,7 +46,7 @@ void Curve(Mat& image, vector <Point>& vertex, string color)
 
         for (int i = 1; i <= n; i++)
         {
-            drawLine(image, B_splain(vertex[j], vertex[j + 1], vertex[j + 2], vertex[j + 3], static_cast<double>(i - 1) / n), B_splain(vertex[j], vertex[j + 1], vertex[j + 2], vertex[j + 3], static_cast<double>(i) / n), color);
+            drawLine(image, B_spline(vertex[j], vertex[j + 1], vertex[j + 2], vertex[j + 3], static_cast<double>(i - 1) / n), B_spline(vertex[j], vertex[j + 1], vertex[j + 2], vertex[j + 3], static_cast<double>(i) / n), color);
         }   
     }
     
