@@ -19,7 +19,7 @@ Point B_spline(Point p0, Point p1, Point p2, Point p3, double t)
 
 void Curve(Mat& image, vector <Point>& vertex, string color)
 { 
-    if (vertex.size() < 3)
+    if (vertex.size() < 4)
     {
         cout << "Not enough points to plot a B - spline curve" << endl;
         return;
